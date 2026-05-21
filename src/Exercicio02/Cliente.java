@@ -13,14 +13,13 @@ public class Cliente {
     }
 
     public void adicionarPedido(Pedido pedidos){
-        if (index < pedido.length){
             pedido[index++] = pedidos;
-        }
     }
+
 
     public double calcularTotalGasto(){
         double totalGasto = 0;
-        for (int i = 0; i < pedido.length; i++) {
+        for (int i = 0; i < index; i++) {
             if (pedido[i] != null) {
                 totalGasto += pedido[i].calcularTotal();
             }
@@ -30,12 +29,10 @@ public class Cliente {
 
     public Pedido pedidoMaiorValor(){
         Pedido maior = null;
-        for (int i = 0; i < pedido.length; i++) {
-            if (pedido[i] != null){
+        for (int i = 0; i < index; i++) {
                 if (maior==null || pedido[i].calcularTotal() > maior.calcularTotal()){
                     maior = pedido[i];
                 }
-            }
         }
         return maior;
     }

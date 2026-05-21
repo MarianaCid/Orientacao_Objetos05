@@ -18,7 +18,7 @@ public class Pedido {
 
     public double  calcularTotal(){
         double total = 0;
-        for (int i=0; i<itensPedido.length; i++){
+        for (int i=0; i<index; i++){
             if (itensPedido[i] != null){
                 total += itensPedido[i].calcularSubtotal();
             }
@@ -28,7 +28,7 @@ public class Pedido {
 
     public int calcularQtdItem(){
         int totalItens = 0;
-        for (int i = 0; i < itensPedido.length; i++) {
+        for (int i = 0; i < index; i++) {
             if (itensPedido[i] != null){
                 totalItens += itensPedido[i].qtdComprada;
             }
@@ -38,12 +38,10 @@ public class Pedido {
 
     public ItemPedido valorMaior(){
         ItemPedido maior = null;
-        for (int i = 0; i < itensPedido.length; i++) {
-            if (itensPedido[i] != null){
+        for (int i = 0; i < index; i++) {
                 if (maior == null || itensPedido[i].precoUni > maior.precoUni){
                     maior = itensPedido[i];
                 }
-            }
         }
         return maior;
     }
